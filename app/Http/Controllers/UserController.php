@@ -52,6 +52,15 @@ class UserController extends Controller
         return view('pages.users.edit', compact('user'));
     }
 
+    public function showSidebar()
+    {
+        $user = auth()->user();
+        $role = $user->role;
+
+        return view('pages.auth.auth-login', compact('role'));
+    }
+
+
     //update
     public function update(Request $request, User $user)
     {
